@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Table Generator</title>
+  <!-- Load external libraries -->
+  <script src="papaparse.min.js"></script>
+  <script src="Sortable.min.js"></script>
+  <style>
+    #sortableList {
+      list-style-type: none;
+      padding: 0;
+    }
+    #sortableList li {
+      margin: 5px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      cursor: grab;
+    }
+  </style>
+</head>
+<body>
+  <h1>Random Table Generator</h1>
+
+  <section>
+    <h2>Upload CSV</h2>
+    <input type="file" id="csvFileInput" accept=".csv">
+    <button id="uploadButton">Upload CSV</button>
+  </section>
+
+  <section>
+    <h2>Set Parameters</h2>
+    <div id="parameters">
+      <label for="dataColumn">Select Data Column:</label>
+      <select id="dataColumn"></select>
+      
+      <label for="rollColumn">Select Roll Column (optional):</label>
+      <select id="rollColumn"></select>
+      
+      <label for="useAutoRange">Automatically Generate Roll Ranges:</label>
+      <input type="checkbox" id="useAutoRange">
+      
+      <div id="manualRangeInputs">
+        <label for="manualRanges">Specify Roll Ranges:</label>
+        <textarea id="manualRanges" placeholder="e.g., 1-3: Event A, 4-6: Event B"></textarea>
+      </div>
+      
+      <button id="applyParameters">Apply Parameters</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>Reorder Entries</h2>
+    <ul id="sortableList"></ul>
+  </section>
+
+  <section>
+    <h2>Generate Random Entry</h2>
+    <button id="generateButton">Generate Random Entry</button>
+    <div id="outputWithRanges"></div>
+  </section>
+
+  <!-- Load main script after the libraries -->
+  <script src="script.js" defer></script>
+</body>
+</html>
